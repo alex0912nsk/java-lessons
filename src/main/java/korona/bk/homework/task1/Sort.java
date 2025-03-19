@@ -43,9 +43,9 @@ public class Sort {
     }
 
     private static void swap(int[] a, int i, int j) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
+        a[i] += a[j];
+        a[j] = a[i] - a[j];
+        a[i] -= a[j];
     }
 
     private static void swap(char[] a, int i, int j) {
