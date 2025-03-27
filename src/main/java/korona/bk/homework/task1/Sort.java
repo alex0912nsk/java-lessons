@@ -1,6 +1,6 @@
 package korona.bk.homework.task1;
 
-public class Sort {
+public final class Sort {
 
     private Sort() {
     }
