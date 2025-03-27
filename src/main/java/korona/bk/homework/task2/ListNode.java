@@ -19,9 +19,9 @@ public class ListNode {
         this.nextListNode = nextListNode;
     }
 
-    public ListNode last(){
+    public ListNode last() {
         ListNode currentListNode = this;
-        while (currentListNode.nextListNode != null){
+        while (currentListNode.nextListNode != null) {
             currentListNode = currentListNode.next();
         }
         return currentListNode;
@@ -39,10 +39,10 @@ public class ListNode {
     public String toString() {
         ListNode currentListNode = this;
         StringBuilder result = new StringBuilder();
-        while (currentListNode != null){
+        while (currentListNode != null) {
             result.append(currentListNode.val).append(",");
             currentListNode = currentListNode.next();
         }
-        return result.deleteCharAt(result.length()-1).toString();
+        return result.deleteCharAt(result.length() - 1).toString();
     }
 }
