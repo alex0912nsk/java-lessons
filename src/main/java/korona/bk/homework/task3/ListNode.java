@@ -52,10 +52,10 @@ public class ListNode {
 
     public ListNode reverseCopy() {
         ListNode currentListNode = this;
-        ListNode newListNode = new ListNode(currentListNode.val);
-        while (currentListNode.next() != null) {
-            currentListNode = currentListNode.next();
+        ListNode newListNode = null;
+        while (currentListNode != null) {
             newListNode = appendForward(newListNode, currentListNode.val);
+            currentListNode = currentListNode.next();
         }
         return newListNode;
     }

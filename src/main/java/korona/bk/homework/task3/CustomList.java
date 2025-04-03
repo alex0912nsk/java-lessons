@@ -38,6 +38,10 @@ public class CustomList {
         } else throw new WrongMethodTypeException("Несоответствие классов");
     }
 
+    public void append(CustomList cstmL) {
+        this.append(cstmL.array);
+    }
+
     public void delete(int index) {
         if (index > array.length) throw new IndexOutOfBoundsException("Неверный индекс");
         Object[] newArray = new Object[array.length - 1];

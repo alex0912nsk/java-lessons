@@ -19,5 +19,7 @@ public class Exercise2 {
         CustomList newString3 = new CustomList();
         newString3.append(new Integer[]{3, 7, 10, 15});
         System.out.println(newString3);
+        newString3.append(new CustomList(new Integer[]{8, 4, 13, 17}));
+        System.out.println(newString3);
     }
 }
