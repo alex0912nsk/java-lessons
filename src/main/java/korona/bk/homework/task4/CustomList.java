@@ -1,0 +1,89 @@
+package korona.bk.homework.task4;
+
+import java.lang.invoke.WrongMethodTypeException;
+import java.util.Arrays;
+import java.util.Objects;
+
+public class CustomList {
+
+    protected Object[] array;
+
+    public CustomList(Object[] array) {
+        this.array = array;
+    }
+
+    public CustomList() {
+        this.array = null;
+    }
+
+    public void append(Object o) {
+        if (array == null) {
+            array = new Object[]{o};
+        } else if (o != null && array[0].getClass() == o.getClass() && this.checkUniq(o)) {
+            Object[] newArray = new Object[array.length + 1];
+            System.arraycopy(this.array, 0, newArray, 0, array.length);
+            newArray[array.length] = o;
+            array = newArray;
+        } else throw new WrongMethodTypeException("Несоответствие классов");
+    }
+
+    public void append(Object[] o) {
+        if (array == null) {
+            array = o;
+        } else if (o != null && array[0].getClass() == o[0].getClass()) {
+            Object[] newArray = new Object[array.length + o.length];
+            System.arraycopy(array, 0, newArray, 0, array.length);
+            System.arraycopy(o, 0, newArray, array.length, o.length);
+            array = newArray;
+        } else throw new WrongMethodTypeException("Несоответствие классов");
+    }
+
+    public void append(CustomList cstmL) {
+        this.append(cstmL.array);
+    }
+
+    public void delete(int index) {
+        if (index > array.length) throw new IndexOutOfBoundsException("Неверный индекс");
+        Object[] newArray = new Object[array.length - 1];
+        System.arraycopy(array, 0, newArray, 0, index);
+        System.arraycopy(array, index + 1, newArray, index, newArray.length - index);
+        array = newArray;
+    }
+
+    public void delete(Object value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) delete(i);
+        }
+    }
+
+    protected boolean checkUniq(Object o) {
+        if (this.array != null) {
+            for (Object object : this.array) {
+                if (object.equals(o)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomList that = (CustomList) o;
+        return Objects.deepEquals(array, that.array);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(array);
+    }
+
+    @Override
+    public String toString() {
+        return "CustomList{" +
+                "array=" + Arrays.toString(array) +
+                '}';
+    }
+}
