@@ -10,8 +10,8 @@ public class Exercise1 {
         Author author3 = new Author("Васильев", "Алексей", LocalDate.of(1994, 12, 9));
         Library library = new Library();
 
-        library.append(new Book("Java для чайников", author1, "Все люди делятся на примитивы и объекты"));
-        library.append(new Book[]{
+        library.addBook(new Book("Java для чайников", author1, "Все люди делятся на примитивы и объекты"));
+        library.addBook(new Book[]{
                 new Book("Java для чайников", author1, "Все люди делятся на примитивы и объекты"),
                 new Book("Java для чайников 2", author1, "В основном примитивы"),
                 new Book("Java для чайников 3", author1, "Игорь привет"),

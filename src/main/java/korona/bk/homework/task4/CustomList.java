@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class CustomList {
 
-    protected Object[] array;
+    private Object[] array;
 
     public CustomList(Object[] array) {
         this.array = array;
@@ -16,15 +16,21 @@ public class CustomList {
         this.array = null;
     }
 
+    public Object[] getArray() {
+        return array;
+    }
+
     public void append(Object o) {
         if (array == null) {
             array = new Object[]{o};
-        } else if (o != null && array[0].getClass() == o.getClass() && this.checkUniq(o)) {
+        } else if ((o != null ? array[0].getClass() : null) == (o != null ? o.getClass() : null)) {
             Object[] newArray = new Object[array.length + 1];
             System.arraycopy(this.array, 0, newArray, 0, array.length);
             newArray[array.length] = o;
             array = newArray;
-        } else throw new WrongMethodTypeException("Несоответствие классов");
+        } else {
+            throw new WrongMethodTypeException("Несоответствие классов");
+        }
     }
 
     public void append(Object[] o) {
@@ -35,7 +41,9 @@ public class CustomList {
             System.arraycopy(array, 0, newArray, 0, array.length);
             System.arraycopy(o, 0, newArray, array.length, o.length);
             array = newArray;
-        } else throw new WrongMethodTypeException("Несоответствие классов");
+        } else {
+            throw new WrongMethodTypeException("Несоответствие классов");
+        }
     }
 
     public void append(CustomList cstmL) {
@@ -50,13 +58,21 @@ public class CustomList {
         array = newArray;
     }
 
-    public void delete(Object value) {
+    /**
+     * @param value - удаляемое значение
+     * @return true, если элемент найден и удален, false если небыло такого элемента
+     */
+    public boolean delete(Object value) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) delete(i);
+            if (array[i] == value) {
+                delete(i);
+                return true;
+            }
         }
+        return false;
     }
 
-    protected boolean checkUniq(Object o) {
+    public boolean checkUniq(Object o) {
         if (this.array != null) {
             for (Object object : this.array) {
                 if (object.equals(o)) {
