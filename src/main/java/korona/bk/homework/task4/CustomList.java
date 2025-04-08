@@ -33,6 +33,26 @@ public class CustomList {
         }
     }
 
+    /**
+     * @param o - добавляемое значение
+     * @return true, если значение уникально и добавлено, иначе false
+     */
+    public boolean appendOnlyUniq(Object o) {
+        if (array == null) {
+            array = new Object[]{o};
+        } else if ((o != null ? array[0].getClass() : null) == (o != null ? o.getClass() : null)) {
+            if (this.checkUniq(o)) {
+                Object[] newArray = new Object[array.length + 1];
+                System.arraycopy(this.array, 0, newArray, 0, array.length);
+                newArray[array.length] = o;
+                array = newArray;
+            } else return false;
+        } else {
+            throw new WrongMethodTypeException("Несоответствие классов");
+        }
+        return true;
+    }
+
     public void append(Object[] o) {
         if (array == null) {
             array = o;
@@ -72,7 +92,7 @@ public class CustomList {
         return false;
     }
 
-    public boolean checkUniq(Object o) {
+    private boolean checkUniq(Object o) {
         if (this.array != null) {
             for (Object object : this.array) {
                 if (object.equals(o)) {

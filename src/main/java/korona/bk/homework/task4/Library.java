@@ -17,10 +17,12 @@ public class Library {
         books = new CustomList();
     }
 
-    public void addBook(Book book) {
-        if (books.checkUniq(book)) {
-            books.append(book);
-        }
+    /**
+     * @param book - добавляемое значение
+     * @return true, если значение уникально и добавлено, иначе false
+     */
+    public boolean addBook(Book book) {
+        return books.appendOnlyUniq(book);
     }
 
     public void addBook(Book[] books) {
