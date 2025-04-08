@@ -4,12 +4,18 @@ public class Exercise2 {
     public static void main(String[] args) {
         CustomList newString = new CustomList(new String[]{"Катя", "Галя", "Олег", "Даша"});
         newString.append("Марина");
+        newString.append((String) null);
         System.out.println(newString);
         newString.append(new String[]{"Виолета", "Анжела"});
         System.out.println(newString);
         newString.delete(3);
         System.out.println(newString);
-        newString.delete("Марина");
+        if(newString.delete("Марина")){
+            System.out.println("удалил Марину");
+        }
+        if(!newString.delete("Всеволод")){
+            System.out.println("не было Всеволода");
+        }
         System.out.println(newString);
 
         CustomList newString2 = new CustomList();
