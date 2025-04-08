@@ -54,6 +54,10 @@ public class CustomList {
         array = newArray;
     }
 
+    /**
+     * @param value удаляемое значение
+     * @return true, если элемент найден и удален, false если небыло такого элемента
+     */
     public boolean delete(Object value) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == value) {
