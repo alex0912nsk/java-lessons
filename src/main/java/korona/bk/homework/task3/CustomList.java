@@ -46,12 +46,19 @@ public class CustomList {
         this.append(cstmL.array);
     }
 
-    public void delete(int index) {
-        if (index > array.length) throw new IndexOutOfBoundsException("Неверный индекс");
+    /**
+     * @param index - индекс удаляемого значения
+     * @return true, если элемент найден и удален, false если небыло такого элемента
+     */
+    public boolean delete(int index) {
+        if (index > array.length) {
+            return false;
+        }
         Object[] newArray = new Object[array.length - 1];
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(array, index + 1, newArray, index, newArray.length - index);
         array = newArray;
+        return true;
     }
 
     /**
