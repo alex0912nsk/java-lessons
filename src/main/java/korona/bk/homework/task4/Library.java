@@ -22,19 +22,15 @@ public class Library {
      * @return true, если значение уникально и добавлено, иначе false
      */
     public boolean addBook(Book book) {
-        return books.appendOnlyUniq(book);
+        return books.appendOnlyUnique(book);
     }
 
     public void addBook(Book[] books) {
-        for (Book book : books) {
-            this.addBook(book);
-        }
+        this.books.appendOnlyUnique(books);
     }
 
     public void addBook(CustomList books) {
-        for (Object book : books.getArray()) {
-            this.addBook((Book) book);
-        }
+        this.books.appendOnlyUnique(books);
     }
 
     public Book findByAuthorAndTitle(Author author, String title) {

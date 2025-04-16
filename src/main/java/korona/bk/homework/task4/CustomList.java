@@ -36,17 +36,20 @@ public class CustomList {
     /**
      * @param o - добавляемое значение
      * @return true, если значение уникально и добавлено, иначе false
+     * @throws WrongMethodTypeException если переданный Object не соответствует классу CustomList
      */
-    public boolean appendOnlyUniq(Object o) {
+    public boolean appendOnlyUnique(Object o) {
         if (array == null) {
             array = new Object[]{o};
         } else if ((o != null ? array[0].getClass() : null) == (o != null ? o.getClass() : null)) {
-            if (this.checkUniq(o)) {
+            if (this.checkUnique(o)) {
                 Object[] newArray = new Object[array.length + 1];
                 System.arraycopy(this.array, 0, newArray, 0, array.length);
                 newArray[array.length] = o;
                 array = newArray;
-            } else return false;
+            } else {
+                return false;
+            }
         } else {
             throw new WrongMethodTypeException("Несоответствие классов");
         }
@@ -66,16 +69,33 @@ public class CustomList {
         }
     }
 
+    public void appendOnlyUnique(Object[] o) {
+        for (Object obj : o) {
+            this.appendOnlyUnique(obj);
+        }
+    }
+
     public void append(CustomList cstmL) {
         this.append(cstmL.array);
     }
 
-    public void delete(int index) {
-        if (index > array.length) throw new IndexOutOfBoundsException("Неверный индекс");
+    public void appendOnlyUnique(CustomList cstmL) {
+        this.appendOnlyUnique(cstmL.array);
+    }
+
+    /**
+     * @param index - индекс удаляемого значения
+     * @return true, если элемент найден и удален, false если небыло такого элемента
+     */
+    public boolean delete(int index) {
+        if (index > array.length) {
+            return false;
+        }
         Object[] newArray = new Object[array.length - 1];
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(array, index + 1, newArray, index, newArray.length - index);
         array = newArray;
+        return true;
     }
 
     /**
@@ -92,7 +112,7 @@ public class CustomList {
         return false;
     }
 
-    private boolean checkUniq(Object o) {
+    private boolean checkUnique(Object o) {
         if (this.array != null) {
             for (Object object : this.array) {
                 if (object.equals(o)) {
