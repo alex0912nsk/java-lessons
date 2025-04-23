@@ -28,5 +28,8 @@ public class Exercise1 {
         System.out.println(library.findByAuthorAndTitle(author1, "Java для чайников"));
         System.out.println("\nА сейчас будут все книги автора");
         System.out.println(library.findByAuthor(author2));
+        System.out.println("\nУдалим третью книгу");
+        library.delete(2);
+        System.out.println(library);
     }
 }

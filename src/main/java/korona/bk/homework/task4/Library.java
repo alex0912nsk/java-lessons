@@ -53,6 +53,14 @@ public class Library {
         return filtred;
     }
 
+    public boolean delete(int index) {
+        return books.delete(index);
+    }
+
+    public boolean delete(Book book) {
+        return books.delete(book);
+    }
+
     @Override
     public String toString() {
         return "Library{" +
