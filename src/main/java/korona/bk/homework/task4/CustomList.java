@@ -104,7 +104,7 @@ public class CustomList {
      */
     public boolean delete(Object value) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 delete(i);
                 return true;
             }

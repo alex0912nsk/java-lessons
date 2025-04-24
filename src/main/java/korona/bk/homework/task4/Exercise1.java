@@ -31,5 +31,8 @@ public class Exercise1 {
         System.out.println("\nУдалим третью книгу");
         library.delete(2);
         System.out.println(library);
+        System.out.println("\nУдалим Java для чайников 2");
+        library.delete(new Book("Java для чайников 2", author1, "В основном примитивы"));
+        System.out.println(library);
     }
 }
