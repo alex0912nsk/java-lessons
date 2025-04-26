@@ -33,6 +33,28 @@ public class CustomList {
         }
     }
 
+    public Object getRandomValue() {
+        return array[(int) (Math.random() * array.length)];
+    }
+
+    public int length() {
+        if (array == null) {
+            return 0;
+        }
+        return array.length;
+    }
+
+    public boolean isEmpty() {
+        return array == null;
+    }
+
+    public Object getInnerClass() {
+        if (!this.isEmpty()) {
+            return array[0].getClass();
+        }
+        return null;
+    }
+
     /**
      * @param o - добавляемое значение
      * @return true, если значение уникально и добавлено, иначе false
@@ -104,7 +126,7 @@ public class CustomList {
      */
     public boolean delete(Object value) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 delete(i);
                 return true;
             }
