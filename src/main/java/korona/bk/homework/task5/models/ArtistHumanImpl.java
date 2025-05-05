@@ -7,13 +7,13 @@ import korona.bk.homework.task5.interfaces.ArtistHuman;
 public class ArtistHumanImpl extends ArtistImpl implements ArtistHuman {
     private final CustomList pets;
 
-    public ArtistHumanImpl(String name, ArtistClass artistClass, CustomList pets) {
-        super(name, artistClass);
+    public ArtistHumanImpl(String name, CustomList pets) {
+        super(name, ArtistClass.ЧЕЛОВЕК);
         this.pets = pets;
     }
 
-    public ArtistHumanImpl(String name, ArtistClass artistClass) {
-        super(name, artistClass);
+    public ArtistHumanImpl(String name) {
+        super(name, ArtistClass.ЧЕЛОВЕК);
         this.pets = new CustomList();
     }
 

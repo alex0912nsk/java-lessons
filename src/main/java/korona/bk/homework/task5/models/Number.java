@@ -36,7 +36,6 @@ public class Number {
 
     @Override
     public String toString() {
-        //Человек прыгает -> обезьяна бежит -> и т.д.
         String result = "";
         for (Object part : numberParts.getArray()) {
             result = result + part.toString() + " -> ";
