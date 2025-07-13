@@ -8,12 +8,12 @@ public class ArtistHumanImpl extends ArtistImpl implements ArtistHuman {
     private final CustomList pets;
 
     public ArtistHumanImpl(String name, CustomList pets) {
-        super(name, ArtistClass.ЧЕЛОВЕК);
+        super(name, ArtistClass.HUMAN);
         this.pets = pets;
     }
 
     public ArtistHumanImpl(String name) {
-        super(name, ArtistClass.ЧЕЛОВЕК);
+        super(name, ArtistClass.HUMAN);
         this.pets = new CustomList();
     }
 
@@ -23,8 +23,9 @@ public class ArtistHumanImpl extends ArtistImpl implements ArtistHuman {
     }
 
     public ArtistImpl getRandomArtist() {
-        if (pets.isEmpty()) return this;
-        else {
+        if (pets.isEmpty()) {
+            return this;
+        } else {
             int random = (int) (Math.random() * (pets.length() + 1));
             if (random == 0) {
                 return this;

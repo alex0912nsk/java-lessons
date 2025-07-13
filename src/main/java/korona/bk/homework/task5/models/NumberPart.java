@@ -29,7 +29,7 @@ public class NumberPart {
 
     @Override
     public String toString() {
-        return artist.getArtistClass().toString() + ' ' +
+        return artist.getArtistClass().getArtist() + ' ' +
                 artist.getName() + ' ' +
                 action.getAction();
     }

@@ -3,16 +3,16 @@ package korona.bk.homework.task5.enums.actions;
 import korona.bk.homework.task5.interfaces.ActionsEnum;
 
 public enum SwimmingActions implements ActionsEnum {
-    ПЛЫТЬ("плывет"),
-    ВЫПРЫГИВАТЬ("выпрыгивает из воды"),
-    БРЫЗГАТЬСЯ("брызгает на зрителей"),
-    САЛЬТО("делает сальто"),
-    ИДТИ("идет"),
-    БЕЖАТЬ("бежит"),
-    ПРЫГАТЬ("прыгает"),
-    ЛОВИТЬ("ловит"),
-    БРОСАТЬ("бросает"),
-    ПОДКИДЫВАТЬ("подкидывает");
+    SWIM("плывет"),
+    JUMP_OUT("выпрыгивает из воды"),
+    SPLASH("брызгает на зрителей"),
+    FLIP("делает сальто"),
+    WALK("идет"),
+    RUN("бежит"),
+    JUMP("прыгает"),
+    CATCH("ловит"),
+    THROW("бросает"),
+    THROW_UP("подкидывает");
 
     private final String action;
 

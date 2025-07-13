@@ -37,20 +37,20 @@ public class ArtistImpl implements Artist {
 
     private ArtistType getArtistTypeFromClass(ArtistClass artistClass) {
         switch (artistClass) {
-            case ПОПУГАЙ:
+            case PARROT:
                 return ArtistType.ЛЕТАЮЩАЯ_ПТИЦА;
-            case КАСАТКА:
-            case ДЕЛЬФИН:
+            case KILLER_WHALE:
+            case DOLPHIN:
                 return ArtistType.РЫБА;
-            case ТИГР:
-            case ЛЕВ:
-            case ПАНТЕРА:
-            case МЕДВЕДЬ:
+            case TIGER:
+            case LION:
+            case PANTHER:
+            case BEAR:
                 return ArtistType.ХИЩНИК;
-            case ПИНГВИН:
-            case СТРАУС:
+            case PENGUIN:
+            case OSTRICH:
                 return ArtistType.НЕЛЕТАЮЩАЯ_ПТИЦА;
-            case ЧЕЛОВЕК:
+            case HUMAN:
                 return ArtistType.ЧЕЛОВЕК;
             default:
                 return ArtistType.ДРУГОЕ_ЖИВОТНОЕ;

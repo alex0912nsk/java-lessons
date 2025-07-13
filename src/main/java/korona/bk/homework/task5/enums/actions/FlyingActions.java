@@ -3,14 +3,14 @@ package korona.bk.homework.task5.enums.actions;
 import korona.bk.homework.task5.interfaces.ActionsEnum;
 
 public enum FlyingActions implements ActionsEnum {
-    ЛЕТАТЬ("летит"),
-    ПИКИРОВАТЬ("пикирует"),
-    ИДТИ("идет"),
-    БЕЖАТЬ("бежит"),
-    ПРЫГАТЬ("прыгает"),
-    ЛОВИТЬ("ловит"),
-    БРОСАТЬ("бросает"),
-    ПОДКИДЫВАТЬ("подкидывает");
+    FLY("летит"),
+    DIVE("пикирует"),
+    WALK("идет"),
+    RUN("бежит"),
+    JUMP("прыгает"),
+    CATCH("ловит"),
+    THROW("бросает"),
+    THROW_UP("подкидывает");
 
     private final String action;
 

@@ -8,13 +8,13 @@ public class Exercise1 {
     public static void main(String[] args) {
         ArtistHumanImpl serega = new ArtistHumanImpl("Серега");
 
-        ArtistImpl leva = new ArtistImpl("Лёва", ArtistClass.ЛЕВ);
-        ArtistImpl kesha = new ArtistImpl("Кеша", ArtistClass.ПОПУГАЙ);
+        ArtistImpl leva = new ArtistImpl("Лёва", ArtistClass.LION);
+        ArtistImpl kesha = new ArtistImpl("Кеша", ArtistClass.PARROT);
         ArtistHumanImpl oleg = new ArtistHumanImpl("Олег", new CustomList(new ArtistImpl[]{leva, kesha}));
 
-        ArtistImpl potap = new ArtistImpl("Потап", ArtistClass.МЕДВЕДЬ);
-        ArtistImpl igor = new ArtistImpl("Игорь", ArtistClass.ДЕЛЬФИН);
-        ArtistImpl amur = new ArtistImpl("Амур", ArtistClass.ТИГР);
+        ArtistImpl potap = new ArtistImpl("Потап", ArtistClass.BEAR);
+        ArtistImpl igor = new ArtistImpl("Игорь", ArtistClass.DOLPHIN);
+        ArtistImpl amur = new ArtistImpl("Амур", ArtistClass.TIGER);
         ArtistHumanImpl leha = new ArtistHumanImpl("Леха", new CustomList(new ArtistImpl[]{potap, igor, amur}));
 
         Program program1 = new Program(new CustomList(new Number[]{new Number(serega, 12), new Number(oleg, 15), new Number(leha, 20)}));
