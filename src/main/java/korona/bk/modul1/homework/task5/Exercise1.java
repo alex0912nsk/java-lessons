@@ -1,7 +1,6 @@
 package korona.bk.modul1.homework.task5;
 
 import korona.bk.modul1.homework.task5.enums.ArtistClass;
-import korona.bk.homework.task5.models.*;
 import korona.bk.modul1.homework.task5.models.ArtistHumanImpl;
 import korona.bk.modul1.homework.task5.models.ArtistImpl;
 import korona.bk.modul1.homework.task5.models.Number;
