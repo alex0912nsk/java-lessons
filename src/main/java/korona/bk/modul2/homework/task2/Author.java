@@ -1,4 +1,4 @@
-package korona.bk.modul2.homework.task1;
+package korona.bk.modul2.homework.task2;
 
 import java.time.LocalDate;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package korona.bk.modul2.homework.task1;
+package korona.bk.modul2.homework.task2;
 
 import java.util.Objects;
 
@@ -7,14 +7,18 @@ public class Book {
     private final Author author;
     private final String text;
 
-    public Book(String title, Author autor, String text) {
+    public Book(String title, Author author, String text) {
         this.title = title;
-        this.author = autor;
+        this.author = author;
         this.text = text;
     }
 
     public Author getAuthor() {
         return author;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     @Override

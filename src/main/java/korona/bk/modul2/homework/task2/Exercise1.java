@@ -1,4 +1,4 @@
-package korona.bk.modul2.homework.task1;
+package korona.bk.modul2.homework.task2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,17 +31,14 @@ public class Exercise1 {
         System.out.println(library.findByAuthorAndTitle(author1, "Java для чайников"));
         System.out.println("\nА сейчас будут все книги автора");
         System.out.println(library.findByAuthor(author2));
-        System.out.println("\nУдалим третью книгу");
-        library.delete(2);
-        System.out.println(library);
-        System.out.println("\nУдалим Java для чайников 2");
+        System.out.println("\nУдалим 'Java для чайников 2'");
         library.delete(new Book("Java для чайников 2", author1, "В основном примитивы"));
         System.out.println(library);
-        if (!library.delete(8)) {
-            System.out.println("\n9ю книгу не удалось удалить, ее не было:(");
-        }
+        System.out.println("\nПопробуем удалить 'Java для профессионалов'");
         if (!library.delete(new Book("Java для профессионалов", author1, "В основном примитивы"))) {
-            System.out.println("\nТакой книги тоже не было");
+            System.out.println("\nТакой книги не было");
         }
+        System.out.println("\nНайдем автора 'Никто не примитив'");
+        System.out.println(library.findAuthorByBookTitle("Никто не примитив"));
     }
 }
