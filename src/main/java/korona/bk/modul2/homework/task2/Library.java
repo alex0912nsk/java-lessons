@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Library {
-
-    //private final Map<Author, List<Book>> authorBooks;
     private final Map<Author, List<Book>> books;
-
 
     public Library(Book book) {
         List<Book> booksList = new ArrayList<>();
@@ -65,10 +62,10 @@ public class Library {
         return books.get(author);
     }
 
-    public Author findAuthorByBookTitle(String bookTitle){
-        for (List<Book> booksList : books.values()){
-            for (Book book : booksList){
-                if(book.getTitle().equals(bookTitle)){
+    public Author findAuthorByBookTitle(String bookTitle) {
+        for (List<Book> booksList : books.values()) {
+            for (Book book : booksList) {
+                if (book.getTitle().equals(bookTitle)) {
                     return book.getAuthor();
                 }
             }
@@ -82,8 +79,6 @@ public class Library {
 
     @Override
     public String toString() {
-        return "Library{" +
-                "books=" + books +
-                '}';
+        return "Library{" + "books=" + books + '}';
     }
 }
