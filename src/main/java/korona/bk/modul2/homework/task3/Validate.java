@@ -42,7 +42,7 @@ public class Validate {
     }
 
     public static void validateFileBookString(String line) {
-        String[] buffer = line.split(",");
+        String[] buffer = line.split(FILE_SEPARATOR);
         if (buffer.length != 5) {
             throw new MissingFormatArgumentException("Неверный формат строки '" + line + "', должно быть 'Имя" + FILE_SEPARATOR + "Фамилия" + FILE_SEPARATOR + "год рождения" + FILE_SEPARATOR + "название книги" + FILE_SEPARATOR + "текст книги'");
         }
