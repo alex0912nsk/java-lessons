@@ -4,18 +4,15 @@ public class Exercise1 {
 
     public static void main(String[] args) {
         Library library = new Library("library.txt");
+        System.out.println("\nпервая библиотека");
         System.out.println(library);
 
         //нет такого файла
-        //Library libraryErr = new Library("library.txttxt");
+        Library libraryErr = new Library("library.txttxt");
 
-        //неверный формат файла
-        //Library libraryErr = new Library("libraryWrongFormat.txt");
-
-        //неверный формат даты
-        //Library libraryErr = new Library("libraryWrongDate.txt");
-
-        //еще не родился
-        //Library libraryErr = new Library("libraryIncorrectDate.txt");
+        //файл с ошибками
+        Library libraryErr2 = new Library("libraryWrong.txt");
+        System.out.println("\nвторая библиотека");
+        System.out.println(libraryErr2);
     }
 }
