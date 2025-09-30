@@ -2,27 +2,26 @@ package korona.bk.modul2.homework.task3;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ReadFile {
-    public static String FILE_SEPARATOR = ",";
+public class FileReader {
+    public static final String FILE_SEPARATOR = ",";
+    private static final String LIBRARY_PATH = "src/main/resources/libraryWrong.txt";
 
-    private ReadFile() {
+    private FileReader() {
     }
 
-    static public List<Book> readLibraryFromFile(String fileName) {
+    static public List<Book> readLibraryFromFile() {
         List<Book> books = new ArrayList<>();
-        String fileFolder = "src/main/resources/";
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileFolder + fileName))) {
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(LIBRARY_PATH))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 try {
-                    Validate.validateFileBookString(line);
+                    Validator.validateFileBookString(line);
                     books.add(stringToBook(line));
                 } catch (IllegalArgumentException e) {
                     System.err.println("ERROR " + e.getMessage());
@@ -31,7 +30,7 @@ public class ReadFile {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.err.println("ERROR не нашел файл " + fileName);
+            System.err.println("ERROR не нашел файл " + LIBRARY_PATH);
         } catch (IOException e) {
             System.err.println("ERROR closing reader: " + e.getMessage());
         }

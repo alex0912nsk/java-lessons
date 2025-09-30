@@ -3,10 +3,10 @@ package korona.bk.modul2.homework.task3;
 import java.time.Year;
 import java.util.MissingFormatArgumentException;
 
-import static korona.bk.modul2.homework.task3.ReadFile.FILE_SEPARATOR;
+import static korona.bk.modul2.homework.task3.FileReader.FILE_SEPARATOR;
 
-public class Validate {
-    private Validate() {
+public class Validator {
+    private Validator() {
     }
 
     public static void validateBirthYear(int year) {

@@ -17,11 +17,7 @@ public class Library {
     }
 
     public Library() {
-        books = new ArrayList<>();
-    }
-
-    public Library(String fileName) {
-        books = ReadFile.readLibraryFromFile(fileName);
+        books = FileReader.readLibraryFromFile();
     }
 
     /**
