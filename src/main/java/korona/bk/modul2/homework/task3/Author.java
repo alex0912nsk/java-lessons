@@ -8,9 +8,17 @@ public class Author {
     private final int birthDate;
 
     public Author(String firstName, String lastName, int birthDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
+        Validator validator = new Validator();
+        this.firstName = validator.firstName(firstName);
+        this.lastName = validator.lastName(lastName);
+        this.birthDate = validator.birthYear(birthDate);
+    }
+
+    public Author(String firstName, String lastName, String birthDate) {
+        Validator validator = new Validator();
+        this.firstName = validator.firstName(firstName);
+        this.lastName = validator.lastName(lastName);
+        this.birthDate = validator.birthYear(birthDate);
     }
 
     @Override

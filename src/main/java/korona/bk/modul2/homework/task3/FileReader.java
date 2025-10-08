@@ -8,20 +8,20 @@ import java.util.List;
 
 
 public class FileReader {
-    public static final String FILE_SEPARATOR = ",";
-    private static final String LIBRARY_PATH = "src/main/resources/libraryWrong.txt";
+    private final String fileSeparator = ",";
+    private final String path;
 
-    private FileReader() {
+    public FileReader(String path) {
+        this.path = path;
     }
 
-    static public List<Book> readLibraryFromFile() {
+    public List<Book> readLibraryFromFile() {
         List<Book> books = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(LIBRARY_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 try {
-                    Validator.validateFileBookString(line);
                     books.add(stringToBook(line));
                 } catch (IllegalArgumentException e) {
                     System.err.println("ERROR " + e.getMessage());
@@ -30,15 +30,16 @@ public class FileReader {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.err.println("ERROR не нашел файл " + LIBRARY_PATH);
+            System.err.println("ERROR не нашел файл " + path);
         } catch (IOException e) {
             System.err.println("ERROR closing reader: " + e.getMessage());
         }
         return books;
     }
 
-    static private Book stringToBook(String line) {
-        String[] buffer = line.split(FILE_SEPARATOR);
+    private Book stringToBook(String line) {
+        new Validator().elementCountForBookString(line, fileSeparator, 5);
+        String[] buffer = line.split(fileSeparator);
         return new Book(buffer[3], new Author(buffer[1], buffer[0], Integer.parseInt(buffer[2])), buffer[4]);
     }
 }
