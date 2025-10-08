@@ -42,10 +42,11 @@ public class Validator {
         return lastName;
     }
 
-    public void elementCountForBookString(String line, String fileSeparator, int count) {
-        String[] buffer = line.split(fileSeparator);
-        if (buffer.length != count) {
+    public String[] elementCountForBookString(String line, String fileSeparator, int count) {
+        String[] bookArray = line.split(fileSeparator);
+        if (bookArray.length != count) {
             throw new MissingFormatArgumentException("Неверный формат строки '" + line + "', должно быть 'Имя" + fileSeparator + "Фамилия" + fileSeparator + "год рождения" + fileSeparator + "название книги" + fileSeparator + "текст книги'");
         }
+        return bookArray;
     }
 }
