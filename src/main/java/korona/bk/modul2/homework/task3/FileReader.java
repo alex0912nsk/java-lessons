@@ -40,6 +40,6 @@ public class FileReader {
     private Book stringToBook(String line) {
         new Validator().elementCountForBookString(line, fileSeparator, 5);
         String[] buffer = line.split(fileSeparator);
-        return new Book(buffer[3], new Author(buffer[1], buffer[0], Integer.parseInt(buffer[2])), buffer[4]);
+        return new Book(buffer[3], new Author(buffer[1], buffer[0], buffer[2]), buffer[4]);
     }
 }
