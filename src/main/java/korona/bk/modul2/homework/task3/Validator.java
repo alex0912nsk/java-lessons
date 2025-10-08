@@ -4,8 +4,6 @@ import java.time.Year;
 import java.util.MissingFormatArgumentException;
 
 public class Validator {
-    public Validator() {
-    }
 
     public int birthYear(int year) {
         int currentYear = Year.now().getValue();
