@@ -1,5 +1,7 @@
 package korona.bk.modul2.homework.task3;
 
+import korona.bk.modul2.homework.task3.validation.FileLibraryStringValidator;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,15 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FileReader {
-    private final String fileSeparator = ",";
+public class FileLibraryReader {
+    private final static String fileSeparator = ",";
     private final String path;
 
-    public FileReader(String path) {
+    public FileLibraryReader(String path) {
         this.path = path;
     }
 
-    public List<Book> readLibraryFromFile() {
+    public static String getFileSeparator() {
+        return fileSeparator;
+    }
+
+    public List<Book> read() {
         List<Book> books = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new java.io.FileReader(path))) {
@@ -38,7 +44,8 @@ public class FileReader {
     }
 
     private Book stringToBook(String line) {
-        String[] buffer = new Validator().elementCountForBookString(line, fileSeparator, 5);
-        return new Book(buffer[3], new Author(buffer[1], buffer[0], buffer[2]), buffer[4]);
+        new FileLibraryStringValidator().validate(line);
+        String[] bookArray = line.split(fileSeparator);
+        return new Book(bookArray[3], new Author(bookArray[1], bookArray[0], bookArray[2]), bookArray[4]);
     }
 }
