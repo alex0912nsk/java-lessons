@@ -1,7 +1,5 @@
 package korona.bk.modul2.homework.task3;
 
-import korona.bk.modul2.homework.task3.validation.*;
-
 import java.util.Objects;
 
 public class Author {
@@ -10,18 +8,12 @@ public class Author {
     private final int birthDate;
 
     public Author(String firstName, String lastName, int birthDate) {
-        new FirstNameValidator().validate(firstName);
-        new LastNameValidator().validate(lastName);
-        new YearValidator().validate(birthDate);
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
     }
 
     public Author(String firstName, String lastName, String birthDate) {
-        new FirstNameValidator().validate(firstName);
-        new LastNameValidator().validate(lastName);
-        new YearValidator().validate(birthDate);
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = Integer.parseInt(birthDate);

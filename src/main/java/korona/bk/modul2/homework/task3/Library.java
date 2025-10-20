@@ -17,7 +17,7 @@ public class Library {
     }
 
     public Library() {
-        books = new FileLibraryReader("src/main/resources/libraryWrong.txt").read();
+        books = new FileLibraryReader("src/main/resources/libraryWrong.txt").readLibraryFromFile();
     }
 
     /**
